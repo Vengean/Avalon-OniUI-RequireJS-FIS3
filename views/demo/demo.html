@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="../../statics/css/theme.css">
+    <link rel="stylesheet" href="demo.css" rel="stylesheet">
+    <script src="../../vendor/require/require.js" data-main="demo.js"></script>
+</head>
+<body>
+    <link rel="import" href="../../components/header/header.html?__inline">
+    <div ms-controller="first">
+        <div class="msg-content">{{msg}}</div>
+        <input ms-duplex="msg">
+        <button ms-click="alertMsg">Show Msg</button>
+    </div>
+    <hr>
+    <div ms-controller="testSkip">
+        <div>{{msg}}</div>
+        <div ms-skip>{{skipAttr}}</div>
+    </div>
+    <hr>
+    <div ms-controller="testTpl">
+        <div ms-include-src="'tpl.html'"></div>
+        <div ms-include-src="tpl"></div>
+    </div>
+    <hr>
+    <div ms-controller="testBinding">
+        <div>{{text}}</div>
+        <div>{{text|html}}</div>
+        <div ms-text="text">replace</div>
+        <div ms-html="text">replace</div>
+    </div>
+    <hr>
+    <div ms-controller="testWidget" class="file-upload-content">
+        <div ms-widget="fileuploader,demoUploader,$uploaderOptions"></div>
+    </div>
+    <hr>
+    <div ms-controller="testCustomWidget" ms-widget="userinfo"></div>
+    <link rel="import" href="../../components/footer/footer.html?__inline">
+</body>
+</html>

@@ -1,0 +1,23 @@
+.bike {
+    background-image: url('bike.png?__sprite');
+    width: 27px;
+    height: 27px;
+}
+
+.bus {
+    background-image: url('bus.png?__sprite');
+    width: 27px;
+    height: 27px;
+}
+
+.car {
+    background-image: url('car.png?__sprite');
+    width: 27px;
+    height: 27px;
+}
+
+.ferry {
+    background-image: url('ferry.png?__sprite');
+    width: 27px;
+    height: 27px;
+}

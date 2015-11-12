@@ -1,0 +1,19 @@
+<div>
+    <img class="user-photo" ms-src="imgUrl">
+    <br>
+    <p>{{content}}</p>
+    <button ms-click="sayHello('greeting')">Click me!</button>
+    <div ms-widget="dialog,greeting,$opts">
+        Hello, I'm {{name}}!
+    </div>
+    <hr>
+    <div>
+        Directions
+        <br>
+        Bike:<div class="bike"></div>
+        Bus:<div class="bus"></div>
+        Car:<div class="car"></div>
+        Ferry:<div class="ferry"></div>
+    </div>
+    <img src="no-pic.jpg?__inline">
+</div>
