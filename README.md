@@ -50,3 +50,5 @@ FIS3的安装请参考官网文档，这里不再赘述。建议用Webstorm打�
 这个demo结合FIS3介绍了一些avalon的基本用法，比如双向绑定，模板，路由，使用OniUI以及编写自定义Avalon组件。需要注意的是，使用avalon路由mmState（路由里面需要require支持）的时候由于用到了FIS3的构建插件fis3-hook-amd，所以在构建的时候它会根据amd编程规范生成一个map去映射文件路径，就是相当于require里面的paths配置，一开始以为是这个插件的issue，所以报了个[issue](https://github.com/fex-team/fis3-hook-amd/issues/13)给插件开发者，错怪了它，大家可以看看这个issue的对话，就明白了。所以，如果你是动态配置路径，一定要这样配置path：
 > 在js文件最顶端加注释@require.async "../welcome/welcome.js" 然后用__moduleID说明要处理的url，controllerUrl: __moduleId("../welcome/welcome.js")
 
+## 总结
+这个简易的框架只是一次简单的尝试，尤其是希望把avalon和fis3结合使用的人，对于打包，avalon的作者是提倡使用webpack的，所以这个demo仅供大家作为选用框架的参考，有说得不对的地方还请大家指教。
