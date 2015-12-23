@@ -44,7 +44,7 @@ Web构建工具其实我只使用过Grunt和Yeoman，但是Team当中的开发�
 工程目录下面有四个子目录和一个名为'fis-config.js'文件，'fis-config.js'是[FIS3](http://fis.baidu.com/fis3/docs/beginning/intro.html)构建所需的配置文件，详细用法见官方文档，注意点我会在后面说。components用于存放组件，既可以是交互组件（widget）也可以是功能组件（如自己封装的ajax）。statics用于存放静态资源文件（images、css等）。vendor用于存放第三方库文件（avalon、jquery、require等）。views用于存放业务视图（包括业务自身相关的html、css、javascript文件），按照业务模块我们又分为module（如home、welcome等）。
 
 ### 运行demo
-FIS3的安装请参考官网文档，这里不再赘述。建议用Webstorm打开工程，首先你要安装fis3-amd-hook、fis-parser-less、fis3-postpackager-loader等插件并打开自带终端Terminal，在终端输入fis3 release命令行开始构建（默认是发布到FIS3自带的server目录，你可以加上参数-d path指定构建目录，不够前期需要调试还是默认自带目录比较方便），然后通过命令行fis3 server start就可以run demo了，默认浏览地址是“http://127.0.0.1:8080”，但是端口号有可能被占用了，你可以通过参数-p指定端口号，打开demo目录下的demo.html，就可以浏览到demo了。
+FIS3的安装请参考官网文档，这里不再赘述。建议用Webstorm打开工程，首先你要安装fis3-amd-hook、fis-parser-less、fis3-postpackager-loader等插件并打开自带终端Terminal，在终端输入fis3 release命令行开始构建（默认是发布到FIS3自带的server目录，你可以加上参数-d path指定构建目录，不够前期需要调试还是默认自带目录比较方便），然后通过命令行fis3 server start就可以run demo了，默认浏览地址是http://127.0.0.1:8080 ，但是端口号有可能被占用了，你可以通过参数-p指定端口号，打开demo目录下的demo.html，就可以浏览到demo了。
 
 ### demo说明
 这个demo结合FIS3介绍了一些avalon的基本用法，比如双向绑定，模板，路由，使用OniUI以及编写自定义Avalon组件。需要注意的是，使用avalon路由mmState（路由里面需要require支持）的时候由于用到了FIS3的构建插件fis3-hook-amd，所以在构建的时候它会根据amd编程规范生成一个map去映射文件路径，就是相当于require里面的paths配置，一开始以为是这个插件的issue，所以报了个[issue](https://github.com/fex-team/fis3-hook-amd/issues/13)给插件开发者，错怪了它，大家可以看看这个issue的对话，就明白了。所以，如果你是动态配置路径，一定要这样配置path：
