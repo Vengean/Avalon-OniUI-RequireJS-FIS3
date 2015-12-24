@@ -1,9 +1,13 @@
 /**
  * Created by vengean on 15/10/19.
+ * @require.async "../welcome/welcome.js"
+ * @require.async "../home/home.js"
+ * @require.async "../center/center.js"
  */
 require(["avalon", "domReady!", "ajax",
     "../../components/oniui/fileuploader/avalon.fileuploader",
-    "../../components/userinfo/userinfo"], function (avalon, domReady, ajax) {
+    "../../components/userinfo/userinfo",
+    "../../components/menu/menu"], function (avalon, domReady, ajax) {
     var vm1 = avalon.define({
         $id: "first",
         msg: "Hello Avalon!",
@@ -71,6 +75,43 @@ require(["avalon", "domReady!", "ajax",
         }
     });
 
+    var vm8 = avalon.define({
+        $id: "testMenu",
+        $menuOpts: {
+            items: [{
+                title: "测试菜单1",
+                name: "welcome",
+                active: true,
+                subs: [
+                    {
+                        title: "子菜单1",
+                        name: "welcome",
+                        url: "/welcome",
+                        templateUrl: "/views/welcome/welcome.html",
+                        controllerUrl: __moduleId("../welcome/welcome.js")
+                    },
+                    {
+                        title: "子菜单2",
+                        name: "center",
+                        url: "/center",
+                        templateUrl: "/views/center/center.html",
+                        controllerUrl: __moduleId("../center/center.js")
+                    }
+                ]
+            }, {
+                title: "测试菜单1",
+                name: "home",
+                url: "/home",
+                templateUrl: "/views/home/home.html",
+                controllerUrl: __moduleId("../home/home.js")
+            }],
+            errorback: function () {
+                avalon.router.go("home", {}, {replace: true});
+            },
+            default: "welcome"
+
+        }
+    });
     /*ajax.get({
      url: "user/login",
      data: {

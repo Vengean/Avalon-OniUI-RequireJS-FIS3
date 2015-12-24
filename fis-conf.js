@@ -63,4 +63,3 @@ fis.hook('amd', {
     },
     globalAsyncAsSync: true
 });
-

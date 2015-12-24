@@ -1,0 +1,18 @@
+<div class="container">
+    <div id="menu" class="sidebar">
+        <ul>
+            <li ms-repeat-item="items">
+                <a ms-if="item.subs == null" ms-href="'#!' + item.url">{{item.title}}</a>
+                <a ms-if="item.subs != null" ms-href="#">{{item.title}}</a>
+                <ul ms-if="item.subs != null" ms-visible="item.active">
+                    <li ms-repeat-sub="item.subs">
+                        <a ms-href="'#!' + sub.url">{{sub.title}}</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="main">
+        <div ms-view></div>
+    </div>
+</div>

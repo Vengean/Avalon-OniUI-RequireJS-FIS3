@@ -923,7 +923,7 @@ define(["../mmPromise/mmPromise", "./mmRouter"], function () {
      */
     avalon.controller.loader = function (url, callback) {
         // 没有错误回调...
-        avalon.require(url, function ($ctrl) {
+        require(url, function ($ctrl) {
             callback && callback($ctrl)
         })
     }
